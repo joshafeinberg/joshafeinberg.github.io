@@ -1,0 +1,756 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Josh Feinberg</title>
+<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.14.1/build/cssreset/cssreset-min.css">
+<style type="text/css">
+
+/*html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}*/
+
+html,body {
+	height: 100%;
+	margin: 0;
+}
+
+
+
+a {
+    text-decoration: none;
+    color:inherit;    
+}
+
+
+#headercontainer {
+	z-index:100000;
+    background: #F1F1F1;
+    padding:0 1% 0 1%;
+    width:300%;
+}
+
+#header {
+    width:100%;
+    z-index: 100;
+    margin:0;
+    padding:0;
+    display:block;
+}
+
+#header h1 {
+    color: #434343;    
+    font-size: 3em;
+}
+
+#header #navigation {
+    color: #21456b;
+    font-size:1.5em;
+}
+
+#navigationbox {
+    position:absolute;
+    height: .5em;
+    background:#f68e56;    
+}
+
+#header #social {
+    position: absolute;
+    right: 2%;
+    top: 3%;
+}
+
+#header a img {
+    max-width: 50px;
+    max-height: 50px;
+    padding-left:.5em;
+}
+
+
+#contentcontainer {
+    max-width: 300%;    
+}
+
+#aboutme {
+    background:#cbcbcb url(images/aboutmebg.png) bottom left;
+    position:absolute;
+    top:0;
+    bottom:.5em;
+    left:0;
+    right:0;
+    z-index:-1;
+    color: #21456b;
+    width: 100%;
+}
+
+#aboutmecontainer {
+    position:absolute;
+    top:35%;
+    width:100%    
+}
+
+#aboutme #leftcontent {
+    float: left;
+    width:41%;
+    text-align:right;
+    line-height:3em;
+    vertical-align:middle    
+}
+
+#aboutme #rightcontent {
+    float:right;
+    width:57%; 
+    vertical-align:middle;
+    text-align:left;
+    font-size:5em;
+    line-height:1.75em;
+}
+
+#aboutme .maincontent {
+    width:100%;
+    text-align:center;
+    color:#434343;
+    font-size:2em;
+}
+
+#aboutme .clear {
+    clear:both;
+    height:2em;
+}
+
+#aboutme div #web {
+    font-size:3em;    
+}
+
+#aboutme div #mobile {
+    font-size:4em;
+}
+
+#aboutme div #desktop {
+    font-size:2em;    
+}
+
+#aboutme img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.portfolioheader h1 {
+    color:     #21456b !important;
+}
+
+.portfolioheader #navigation {
+    color: #cbcbcb !important;    
+}
+
+#portfolio {
+    width: 100%; 
+    position:absolute; 
+    color: #FFF;
+    background: #636363 url(images/portfoliobg.png) bottom left;
+    top:0;
+    bottom:.5em;
+    left:100%;
+    right:0;
+    z-index:-1;
+}
+
+.portfoliocontainer {
+    /*margin-top:8%;*/
+    margin-top: 6em;
+    margin-left:8%;    
+}
+
+#portfolio #portfolioapp {
+    float:left;
+    margin-left:5em;
+    position:relative;
+}
+
+#portfolio #appicon {
+    max-height:175px;
+    max-width:175px
+}
+
+#portfolio h2 {
+    font-size: 3em;    
+}
+
+#portfolio #applist {
+    margin-top: 1em;
+    list-style-type:none
+}
+
+#portfolio #applist li {
+    display:inline-block;
+    background: #282828;
+    border: 3px solid #000;    
+}
+
+#portfolio #applist li img {
+    max-height: 100px;
+    max-width: 100px;    
+}
+
+.portfoliocontainer#webwork {
+    display:none;    
+}
+
+#portfolio #weblist {
+    margin-top: 1em;
+    right:0;
+    list-style-type:none
+}
+
+#portfolio #portfolioweb {
+    width: 45%;
+    text-align:right;    
+    float:left;
+    margin-left:-2em;
+    top: .5em;
+    position:relative;
+}
+
+#portfolio #weblist li {
+    display:inline-block;
+    background: #282828;
+    border: 3px solid #000;    
+}
+
+#portfolio #weblist li img {
+    max-height: 100px;
+    max-width: 100px;    
+}
+
+#portfolioselector {
+    position:absolute;
+    bottom:1em;
+    width:300%;
+    text-align:center;    
+}
+
+.activetab {
+    background:#f68e56;
+    padding:.5em;
+    color:#fff    
+}
+
+.disabledtab {
+    background:#282828;
+    padding:.5em;
+    color:#636363    
+}
+
+
+#resume {
+    width: 100%; 
+    position:absolute; 
+    color: #FFF;
+    background: #21456b url(images/resumebg.png) bottom left;
+    top:0;
+    bottom:.5em;
+    left:200%;
+    right:0;
+    z-index:-1;
+}
+
+.resumecontainer {
+    /*margin-top:8%;*/
+    margin-top: 6em;
+    margin-left:8%;    
+}
+
+#resume h2 {
+    font-size: 2em;    
+}
+
+#resume strong {
+    font-weight:bold;    
+}
+
+#resume em {
+    font-style:italic;    
+}
+
+.resumecontainer#expresume {
+    display:none;    
+}
+
+#ciberexpand, #uiexpand, #serveitexpand, #punchkickexpand {
+	display:none;
+}
+
+#resumeselector {
+    position:absolute;
+    bottom:1em;
+    left:200%;
+    width:100%;
+    text-align:center;    
+}
+
+#footer {
+    background:#f68e56;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:-2;
+    width:300%
+}
+
+
+/* Large desktop */
+@media (min-width: 1200px) { 
+    body {
+        font-size: 18px;    
+    }
+
+    #eduresume img {
+        max-width: 150px;
+        max-height: 113px;
+    } 
+    
+    #portfolio #appimage {
+        max-height:500px;
+        max-width:262px;
+        float:left    
+    }
+    
+    #portfolio #webimage {
+        float:right;
+        max-height:441px;
+        max-width: 500px;
+    }
+    
+    #portfolio #appicon {
+        max-height:175px;
+        max-width:175px
+    }
+    
+    #portfolio #applist li img, #portfolio #weblist li img {
+        max-height: 100px;
+        max-width: 100px;    
+    }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        font-size: 16px;    
+    }
+    
+    #eduresume img {
+        max-width: 100px;
+        max-height: 75px;
+    } 
+    
+    #portfolio #appimage {
+        max-height:400px;
+        max-width:210px;
+        float:left    
+    }
+    
+    #portfolio #webimage {
+        float:right;
+        max-height:353px;
+        max-width: 400px;
+    }
+    
+    #portfolio #appicon {
+        max-height:115px;
+        max-width:115px
+    }
+    
+    #portfolio #applist li img, #portfolio #weblist li img {
+        max-height: 70px;
+        max-width: 70px;    
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+    body {
+        font-size: 14px;    
+    }
+	
+	#header h1 {
+		color: #434343;    
+		font-size: 2em;
+	}
+	
+	#header #navigation {
+		color: #21456b;
+		font-size:1.25em;
+	}
+	
+	#navigationbox {
+		position:absolute;
+		height: .25em;
+		background:#f68e56;    
+	}
+	
+	#header a img {
+		max-width: 25px;
+		max-height: 25px;
+		padding-left:.5em;
+	}
+	
+	
+	#aboutme #leftcontent {
+		float: left;
+		width:30%;
+		text-align:right;
+		line-height:3em;
+		vertical-align:middle    
+	}
+	
+	#aboutme #rightcontent {
+		float:right;
+		width:64%; 
+		vertical-align:middle;
+		text-align:left;
+		font-size:4em;
+		line-height:1.75em;
+	}
+	
+	#aboutmecontainer {
+		top: 0;
+		margin-top: 6em;
+		position:static;
+	}
+	
+	#aboutme div #web {
+		font-size:2.5em;    
+	}
+	
+	#aboutme div #mobile {
+		font-size:3.5em;
+	}
+	
+	#aboutme div #desktop {
+		font-size:1.5em;    
+	}
+	
+	#aboutme .maincontent {
+		font-size: 1em;
+	}
+	
+	#maincontent:last-of-type {
+		display:none;
+	}
+
+    #eduresume img {
+        max-width: 75px;
+        max-height: 56px;
+    } 
+    
+    #portfolio #appimage {
+        max-height:400px;
+        max-width:210px;
+        float:left    
+    }
+    
+    #portfolio #webimage {
+        float:right;
+        max-height:353px;
+        max-width: 400px;
+    }
+    
+    #portfolio #appicon {
+        max-height:135px;
+        max-width:135px
+    }
+    
+    #portfolio #applist li img, #portfolio #weblist li img {
+        max-height: 80px;
+        max-width: 80px;    
+    }
+	
+	.resumecontainer {
+		margin-top: 4em;
+	}
+	
+	#resume h2 {
+		font-size: 1.5em;
+	}
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+    body {
+        font-size: 14px;    
+    }
+	
+	#aboutmecontainer {
+		position:absolute;
+		width:100%    
+	}
+	
+	#aboutme #leftcontent {
+		width:100%;
+		text-align:left;
+		line-height:2.5em;
+		vertical-align:middle    
+	}
+	
+	#aboutme #rightcontent {
+		width:100%; 
+		vertical-align:middle;
+		text-align:right;
+		font-size:3em;
+		line-height:1.75em;
+	}
+	
+    #eduresume img {
+        max-width: 50px;
+        max-height: 37px;
+    } 
+	
+	.portfoliocontainer {
+		/*margin-top:8%;*/
+		margin-top: 6em;
+		margin-left:0em;    
+	}
+	
+	#portfolio #portfolioapp {
+		float:left;
+		margin-left:0em;
+		position:relative;
+	}
+    
+    #portfolio #appimage {
+        max-height:250px;
+        max-width:130px;
+        float:left ;
+		display:none;  
+    }
+	
+	#portfolio #portfolioweb {
+		width:100%;
+		float:left;
+		margin-left:0em;
+		position:relative;
+		text-align:left;
+	}
+    
+    #portfolio #webimage {
+        float:right;
+        max-height:265px;
+        max-width: 300px;
+		display: none;
+    }
+    
+    #portfolio #appicon {
+        max-height:75px;
+        max-width:75px;
+    }
+    
+    #portfolio #applist li img, #portfolio #weblist li img {
+        max-height: 50px;
+        max-width: 50px;    
+    }
+	
+	#ciberexpand, #uiexpand, #serveitexpand, #punchkickexpand {
+		display:block;
+	}
+	
+	#ciber, #ui, #serveit, #punchkick {
+		display: none;
+	}
+	
+	
+	
+	#header #social {
+		visibility:hidden;	
+	}
+}
+
+
+</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+(function(a){if(typeof define==="function"&&define.amd&&define.amd.jQuery){define(["jquery"],a)}else{a(jQuery)}}(function(e){var o="left",n="right",d="up",v="down",c="in",w="out",l="none",r="auto",k="swipe",s="pinch",x="tap",i="doubletap",b="longtap",A="horizontal",t="vertical",h="all",q=10,f="start",j="move",g="end",p="cancel",a="ontouchstart" in window,y="TouchSwipe";var m={fingers:1,threshold:75,cancelThreshold:null,pinchThreshold:20,maxTimeThreshold:null,fingerReleaseThreshold:250,longTapThreshold:500,doubleTapThreshold:200,swipe:null,swipeLeft:null,swipeRight:null,swipeUp:null,swipeDown:null,swipeStatus:null,pinchIn:null,pinchOut:null,pinchStatus:null,click:null,tap:null,doubleTap:null,longTap:null,triggerOnTouchEnd:true,triggerOnTouchLeave:false,allowPageScroll:"auto",fallbackToMouseEvents:true,excludedElements:"label, button, input, select, textarea, a, .noSwipe"};e.fn.swipe=function(D){var C=e(this),B=C.data(y);if(B&&typeof D==="string"){if(B[D]){return B[D].apply(this,Array.prototype.slice.call(arguments,1))}else{e.error("Method "+D+" does not exist on jQuery.swipe")}}else{if(!B&&(typeof D==="object"||!D)){return u.apply(this,arguments)}}return C};e.fn.swipe.defaults=m;e.fn.swipe.phases={PHASE_START:f,PHASE_MOVE:j,PHASE_END:g,PHASE_CANCEL:p};e.fn.swipe.directions={LEFT:o,RIGHT:n,UP:d,DOWN:v,IN:c,OUT:w};e.fn.swipe.pageScroll={NONE:l,HORIZONTAL:A,VERTICAL:t,AUTO:r};e.fn.swipe.fingers={ONE:1,TWO:2,THREE:3,ALL:h};function u(B){if(B&&(B.allowPageScroll===undefined&&(B.swipe!==undefined||B.swipeStatus!==undefined))){B.allowPageScroll=l}if(B.click!==undefined&&B.tap===undefined){B.tap=B.click}if(!B){B={}}B=e.extend({},e.fn.swipe.defaults,B);return this.each(function(){var D=e(this);var C=D.data(y);if(!C){C=new z(this,B);D.data(y,C)}})}function z(a0,aq){var av=(a||!aq.fallbackToMouseEvents),G=av?"touchstart":"mousedown",au=av?"touchmove":"mousemove",R=av?"touchend":"mouseup",P=av?null:"mouseleave",az="touchcancel";var ac=0,aL=null,Y=0,aX=0,aV=0,D=1,am=0,aF=0,J=null;var aN=e(a0);var W="start";var T=0;var aM=null;var Q=0,aY=0,a1=0,aa=0,K=0;var aS=null;try{aN.bind(G,aJ);aN.bind(az,a5)}catch(ag){e.error("events not supported "+G+","+az+" on jQuery.swipe")}this.enable=function(){aN.bind(G,aJ);aN.bind(az,a5);return aN};this.disable=function(){aG();return aN};this.destroy=function(){aG();aN.data(y,null);return aN};this.option=function(a8,a7){if(aq[a8]!==undefined){if(a7===undefined){return aq[a8]}else{aq[a8]=a7}}else{e.error("Option "+a8+" does not exist on jQuery.swipe.options")}return null};function aJ(a9){if(ax()){return}if(e(a9.target).closest(aq.excludedElements,aN).length>0){return}var ba=a9.originalEvent?a9.originalEvent:a9;var a8,a7=a?ba.touches[0]:ba;W=f;if(a){T=ba.touches.length}else{a9.preventDefault()}ac=0;aL=null;aF=null;Y=0;aX=0;aV=0;D=1;am=0;aM=af();J=X();O();if(!a||(T===aq.fingers||aq.fingers===h)||aT()){ae(0,a7);Q=ao();if(T==2){ae(1,ba.touches[1]);aX=aV=ap(aM[0].start,aM[1].start)}if(aq.swipeStatus||aq.pinchStatus){a8=L(ba,W)}}else{a8=false}if(a8===false){W=p;L(ba,W);return a8}else{ak(true)}return null}function aZ(ba){var bd=ba.originalEvent?ba.originalEvent:ba;if(W===g||W===p||ai()){return}var a9,a8=a?bd.touches[0]:bd;var bb=aD(a8);aY=ao();if(a){T=bd.touches.length}W=j;if(T==2){if(aX==0){ae(1,bd.touches[1]);aX=aV=ap(aM[0].start,aM[1].start)}else{aD(bd.touches[1]);aV=ap(aM[0].end,aM[1].end);aF=an(aM[0].end,aM[1].end)}D=a3(aX,aV);am=Math.abs(aX-aV)}if((T===aq.fingers||aq.fingers===h)||!a||aT()){aL=aH(bb.start,bb.end);ah(ba,aL);ac=aO(bb.start,bb.end);Y=aI();aE(aL,ac);if(aq.swipeStatus||aq.pinchStatus){a9=L(bd,W)}if(!aq.triggerOnTouchEnd||aq.triggerOnTouchLeave){var a7=true;if(aq.triggerOnTouchLeave){var bc=aU(this);a7=B(bb.end,bc)}if(!aq.triggerOnTouchEnd&&a7){W=ay(j)}else{if(aq.triggerOnTouchLeave&&!a7){W=ay(g)}}if(W==p||W==g){L(bd,W)}}}else{W=p;L(bd,W)}if(a9===false){W=p;L(bd,W)}}function I(a7){var a8=a7.originalEvent;if(a){if(a8.touches.length>0){C();return true}}if(ai()){T=aa}a7.preventDefault();aY=ao();Y=aI();if(a6()){W=p;L(a8,W)}else{if(aq.triggerOnTouchEnd||(aq.triggerOnTouchEnd==false&&W===j)){W=g;L(a8,W)}else{if(!aq.triggerOnTouchEnd&&a2()){W=g;aB(a8,W,x)}else{if(W===j){W=p;L(a8,W)}}}}ak(false);return null}function a5(){T=0;aY=0;Q=0;aX=0;aV=0;D=1;O();ak(false)}function H(a7){var a8=a7.originalEvent;if(aq.triggerOnTouchLeave){W=ay(g);L(a8,W)}}function aG(){aN.unbind(G,aJ);aN.unbind(az,a5);aN.unbind(au,aZ);aN.unbind(R,I);if(P){aN.unbind(P,H)}ak(false)}function ay(bb){var ba=bb;var a9=aw();var a8=aj();var a7=a6();if(!a9||a7){ba=p}else{if(a8&&bb==j&&(!aq.triggerOnTouchEnd||aq.triggerOnTouchLeave)){ba=g}else{if(!a8&&bb==g&&aq.triggerOnTouchLeave){ba=p}}}return ba}function L(a9,a7){var a8=undefined;if(F()||S()){a8=aB(a9,a7,k)}else{if((M()||aT())&&a8!==false){a8=aB(a9,a7,s)}}if(aC()&&a8!==false){a8=aB(a9,a7,i)}else{if(al()&&a8!==false){a8=aB(a9,a7,b)}else{if(ad()&&a8!==false){a8=aB(a9,a7,x)}}}if(a7===p){a5(a9)}if(a7===g){if(a){if(a9.touches.length==0){a5(a9)}}else{a5(a9)}}return a8}function aB(ba,a7,a9){var a8=undefined;if(a9==k){aN.trigger("swipeStatus",[a7,aL||null,ac||0,Y||0,T]);if(aq.swipeStatus){a8=aq.swipeStatus.call(aN,ba,a7,aL||null,ac||0,Y||0,T);if(a8===false){return false}}if(a7==g&&aR()){aN.trigger("swipe",[aL,ac,Y,T]);if(aq.swipe){a8=aq.swipe.call(aN,ba,aL,ac,Y,T);if(a8===false){return false}}switch(aL){case o:aN.trigger("swipeLeft",[aL,ac,Y,T]);if(aq.swipeLeft){a8=aq.swipeLeft.call(aN,ba,aL,ac,Y,T)}break;case n:aN.trigger("swipeRight",[aL,ac,Y,T]);if(aq.swipeRight){a8=aq.swipeRight.call(aN,ba,aL,ac,Y,T)}break;case d:aN.trigger("swipeUp",[aL,ac,Y,T]);if(aq.swipeUp){a8=aq.swipeUp.call(aN,ba,aL,ac,Y,T)}break;case v:aN.trigger("swipeDown",[aL,ac,Y,T]);if(aq.swipeDown){a8=aq.swipeDown.call(aN,ba,aL,ac,Y,T)}break}}}if(a9==s){aN.trigger("pinchStatus",[a7,aF||null,am||0,Y||0,T,D]);if(aq.pinchStatus){a8=aq.pinchStatus.call(aN,ba,a7,aF||null,am||0,Y||0,T,D);if(a8===false){return false}}if(a7==g&&a4()){switch(aF){case c:aN.trigger("pinchIn",[aF||null,am||0,Y||0,T,D]);if(aq.pinchIn){a8=aq.pinchIn.call(aN,ba,aF||null,am||0,Y||0,T,D)}break;case w:aN.trigger("pinchOut",[aF||null,am||0,Y||0,T,D]);if(aq.pinchOut){a8=aq.pinchOut.call(aN,ba,aF||null,am||0,Y||0,T,D)}break}}}if(a9==x){if(a7===p||a7===g){clearTimeout(aS);if(V()&&!E()){K=ao();aS=setTimeout(e.proxy(function(){K=null;aN.trigger("tap",[ba.target]);if(aq.tap){a8=aq.tap.call(aN,ba,ba.target)}},this),aq.doubleTapThreshold)}else{K=null;aN.trigger("tap",[ba.target]);if(aq.tap){a8=aq.tap.call(aN,ba,ba.target)}}}}else{if(a9==i){if(a7===p||a7===g){clearTimeout(aS);K=null;aN.trigger("doubletap",[ba.target]);if(aq.doubleTap){a8=aq.doubleTap.call(aN,ba,ba.target)}}}else{if(a9==b){if(a7===p||a7===g){clearTimeout(aS);K=null;aN.trigger("longtap",[ba.target]);if(aq.longTap){a8=aq.longTap.call(aN,ba,ba.target)}}}}}return a8}function aj(){var a7=true;if(aq.threshold!==null){a7=ac>=aq.threshold}return a7}function a6(){var a7=false;if(aq.cancelThreshold!==null&&aL!==null){a7=(aP(aL)-ac)>=aq.cancelThreshold}return a7}function ab(){if(aq.pinchThreshold!==null){return am>=aq.pinchThreshold}return true}function aw(){var a7;if(aq.maxTimeThreshold){if(Y>=aq.maxTimeThreshold){a7=false}else{a7=true}}else{a7=true}return a7}function ah(a7,a8){if(aq.allowPageScroll===l||aT()){a7.preventDefault()}else{var a9=aq.allowPageScroll===r;switch(a8){case o:if((aq.swipeLeft&&a9)||(!a9&&aq.allowPageScroll!=A)){a7.preventDefault()}break;case n:if((aq.swipeRight&&a9)||(!a9&&aq.allowPageScroll!=A)){a7.preventDefault()}break;case d:if((aq.swipeUp&&a9)||(!a9&&aq.allowPageScroll!=t)){a7.preventDefault()}break;case v:if((aq.swipeDown&&a9)||(!a9&&aq.allowPageScroll!=t)){a7.preventDefault()}break}}}function a4(){var a8=aK();var a7=U();var a9=ab();return a8&&a7&&a9}function aT(){return !!(aq.pinchStatus||aq.pinchIn||aq.pinchOut)}function M(){return !!(a4()&&aT())}function aR(){var ba=aw();var bc=aj();var a9=aK();var a7=U();var a8=a6();var bb=!a8&&a7&&a9&&bc&&ba;return bb}function S(){return !!(aq.swipe||aq.swipeStatus||aq.swipeLeft||aq.swipeRight||aq.swipeUp||aq.swipeDown)}function F(){return !!(aR()&&S())}function aK(){return((T===aq.fingers||aq.fingers===h)||!a)}function U(){return aM[0].end.x!==0}function a2(){return !!(aq.tap)}function V(){return !!(aq.doubleTap)}function aQ(){return !!(aq.longTap)}function N(){if(K==null){return false}var a7=ao();return(V()&&((a7-K)<=aq.doubleTapThreshold))}function E(){return N()}function at(){return((T===1||!a)&&(isNaN(ac)||ac===0))}function aW(){return((Y>aq.longTapThreshold)&&(ac<q))}function ad(){return !!(at()&&a2())}function aC(){return !!(N()&&V())}function al(){return !!(aW()&&aQ())}function C(){a1=ao();aa=event.touches.length+1}function O(){a1=0;aa=0}function ai(){var a7=false;if(a1){var a8=ao()-a1;if(a8<=aq.fingerReleaseThreshold){a7=true}}return a7}function ax(){return !!(aN.data(y+"_intouch")===true)}function ak(a7){if(a7===true){aN.bind(au,aZ);aN.bind(R,I);if(P){aN.bind(P,H)}}else{aN.unbind(au,aZ,false);aN.unbind(R,I,false);if(P){aN.unbind(P,H,false)}}aN.data(y+"_intouch",a7===true)}function ae(a8,a7){var a9=a7.identifier!==undefined?a7.identifier:0;aM[a8].identifier=a9;aM[a8].start.x=aM[a8].end.x=a7.pageX||a7.clientX;aM[a8].start.y=aM[a8].end.y=a7.pageY||a7.clientY;return aM[a8]}function aD(a7){var a9=a7.identifier!==undefined?a7.identifier:0;var a8=Z(a9);a8.end.x=a7.pageX||a7.clientX;a8.end.y=a7.pageY||a7.clientY;return a8}function Z(a8){for(var a7=0;a7<aM.length;a7++){if(aM[a7].identifier==a8){return aM[a7]}}}function af(){var a7=[];for(var a8=0;a8<=5;a8++){a7.push({start:{x:0,y:0},end:{x:0,y:0},identifier:0})}return a7}function aE(a7,a8){a8=Math.max(a8,aP(a7));J[a7].distance=a8}function aP(a7){if(J[a7]){return J[a7].distance}return undefined}function X(){var a7={};a7[o]=ar(o);a7[n]=ar(n);a7[d]=ar(d);a7[v]=ar(v);return a7}function ar(a7){return{direction:a7,distance:0}}function aI(){return aY-Q}function ap(ba,a9){var a8=Math.abs(ba.x-a9.x);var a7=Math.abs(ba.y-a9.y);return Math.round(Math.sqrt(a8*a8+a7*a7))}function a3(a7,a8){var a9=(a8/a7)*1;return a9.toFixed(2)}function an(){if(D<1){return w}else{return c}}function aO(a8,a7){return Math.round(Math.sqrt(Math.pow(a7.x-a8.x,2)+Math.pow(a7.y-a8.y,2)))}function aA(ba,a8){var a7=ba.x-a8.x;var bc=a8.y-ba.y;var a9=Math.atan2(bc,a7);var bb=Math.round(a9*180/Math.PI);if(bb<0){bb=360-Math.abs(bb)}return bb}function aH(a8,a7){var a9=aA(a8,a7);if((a9<=45)&&(a9>=0)){return o}else{if((a9<=360)&&(a9>=315)){return o}else{if((a9>=135)&&(a9<=225)){return n}else{if((a9>45)&&(a9<135)){return v}else{return d}}}}}function ao(){var a7=new Date();return a7.getTime()}function aU(a7){a7=e(a7);var a9=a7.offset();var a8={left:a9.left,right:a9.left+a7.outerWidth(),top:a9.top,bottom:a9.top+a7.outerHeight()};return a8}function B(a7,a8){return(a7.x>a8.left&&a7.x<a8.right&&a7.y>a8.top&&a7.y<a8.bottom)}}}));
+</script>
+<script type="text/javascript">
+
+function moveNavigationBar(){"use strict";var e=$(window).width();var t=$(window).scrollLeft();var n=0;$("#headercontainer").removeClass("portfolioheader");if(t/e>=1.9){pageName="resume";document.title=defaultTitle+" - Resume";currentPage=2}else if(t/e>=.9){$("#headercontainer").addClass("portfolioheader");pageName="portfolio";document.title=defaultTitle+" - Portfolio";currentPage=1}else{pageName="aboutme";document.title=defaultTitle;currentPage=0}var r=$("#nav"+pageName);var i=$("#navigationbox");i.width(r.width()+10);i.css("top",r.position().top*1+r.css("font-size").split("px")[0]*1);i.css("left",r.position().left)}function horizontalScroll(e){"use strict";$(window).scrollTop(0);var t=$(window).width();lock=true;if(e=="left"){$(window).scrollTop(0);currentPage=currentPage==0?0:currentPage-1;var n=t*currentPage;n=n>0?n:0;$("html, body").animate({scrollLeft:n},{duration:1e3,queue:false,complete:function(){lock=false;moveNavigationBar()}});$("#headercontainer").animate({marginLeft:n},{duration:1e3,queue:false});var r=2-n/t*100;$("#social").animate({right:r+"%"},{duration:1e3,queue:false})}else{$(window).scrollTop(0);currentPage=currentPage==2?2:currentPage+1;var n=t*currentPage;n=n>t*2?t*2:n;$("html, body").animate({scrollLeft:n},{duration:1e3,queue:false,complete:function(){lock=false;moveNavigationBar()}});$("#headercontainer").animate({marginLeft:n},{duration:1e3,queue:false});var r=2-n/t*100;$("#social").animate({right:r+"%"},{duration:1e3,queue:false})}}function portfolioView(e){"use strict";var t=$("#portfolioapptab");var n=$("#portfoliowebtab");var r=$("#appwork");var i=$("#webwork");if(e=="web"){t.removeClass("activetab");t.addClass("disabledtab");n.removeClass("disabledtab");n.addClass("activetab");r.css("display","none");i.css("display","block")}else if(e=="app"){t.removeClass("disabledtab");t.addClass("activetab");n.removeClass("activetab");n.addClass("disabledtab");r.css("display","block");i.css("display","none")}}function resumeView(e){"use strict";var t=$("#resumeedutab");var n=$("#resumeexptab");var r=$("#eduresume");var i=$("#expresume");if(e=="exp"){t.removeClass("activetab");t.addClass("disabledtab");n.removeClass("disabledtab");n.addClass("activetab");r.css("display","none");i.css("display","block")}else if(e=="edu"){t.removeClass("disabledtab");t.addClass("activetab");n.removeClass("activetab");n.addClass("disabledtab");r.css("display","block");i.css("display","none")}a}function changePortfolio(e,t){if(e=="mobile"){$("#appimage").attr("src",portfolio.mobile[t].phone);$("#appicon").attr("src",portfolio.mobile[t].icon);$("#appname").text(portfolio.mobile[t].name);$("#appdescription").text(portfolio.mobile[t].description);$("#appbitbucket").attr("href",portfolio.mobile[t].bitbucket);$("#appplay").attr("href",portfolio.mobile[t].play);$("#applist").html("");for(var n=0;n<portfolio.mobile.length;n++){if(n!=t){$("#applist").append('<li><img src="'+portfolio.mobile[n].icon+'" alt="'+portfolio.mobile[n].name+"\" onClick=\"changePortfolio('mobile', "+n+")\" ontouchend=\"changePortfolio('mobile', "+n+')" /></li>')}}}else if(e=="web"){$("#webname").text(portfolio.web[t].name);$("#webdescription").text(portfolio.web[t].description);$("#webtechnologies").text(portfolio.web[t].technologies);$("#weblink").attr("href",portfolio.web[t].url);$("#webimage").attr("src",portfolio.web[t].image);$("#weblist").html("");for(var n=0;n<portfolio.web.length;n++){if(n!=t){$("#weblist").append('<li><img src="'+portfolio.web[n].icon+'" alt="'+portfolio.web[n].name+"\" onClick=\"changePortfolio('web', "+n+")\" ontouchend=\"changePortfolio('web', "+n+')"  /></li>')}}}}function expand(e){$("#"+e).toggle();var t=$("#"+e+"expand").html();var n=$("#"+e+"expand").html().replace(/\(\+\)/,"(-)");if(n==t){$("#"+e+"expand").html($("#"+e+"expand").html().replace(/\(\-\)/,"(+)"))}else{$("#"+e+"expand").html(n)}}var pageName;var currentPage=0;var onLoad=true;var lock=false;var timeLock=false;var defaultTitle=document.title;$.fx.interval=50;var portfolio={mobile:[{name:"JF Minesweeper",icon:"images/minesweeper.png",phone:"images/minesweeper_phone.png",description:"An Android implementation of the classic game Minesweeper",bitbucket:"https://bitbucket.org/joshafeinberg/jf-minesweeper",play:"https://play.google.com/store/apps/details?id=com.joshafeinberg.minesweeper"},{name:"Workout Tracker",icon:"images/workouttracker.png",phone:"images/workouttracker_phone.png",description:"Store all your individual workouts and see your best results",bitbucket:"https://bitbucket.org/joshafeinberg/workout-tracker",play:"https://play.google.com/store/apps/details?id=com.joshafeinberg.workouttracker"},{name:"World Alarm",icon:"images/worldalarm.png",phone:"images/worldalarm_phone.png",description:"An alarm clock with the additional feature of setting your alarms by location",bitbucket:"https://bitbucket.org/joshafeinberg/worldalarm",play:"https://play.google.com/store/apps/details?id=com.joshafeinberg.worldalarm"},{name:"Contact Reminder",icon:"images/contactreminder.png",phone:"images/contactreminder_phone.png",description:"Add a reminder to a certain contact",bitbucket:"https://bitbucket.org/joshafeinberg/contact-reminder",play:"https://play.google.com/store/apps/details?id=com.joshafeinberg.contactreminder"}],web:[{name:"Bloomington Rental Index",icon:"images/bri.png",description:"A startup founded on the idea of combining all the rental properties available in Bloomington, IN onto one searchable database and website",technologies:"PHP, MySQL, Google Maps API, Smarty",url:"http://joshafeinberg.com/portfolio/bri",image:"images/bri_monitor.png"},{name:"Alpha Sigma Phi",icon:"images/asp.png",description:"Website for the Gamma Chi Chapter of Alpha Sigma Phi Fraternity",technologies:"PHP, MySQL, JQuery, Smarty",url:"http://joshafeinberg.com/portfolio/asp",image:"images/asp_monitor.png"},{name:"The NBR",icon:"images/nbr.png",description:"A blog created for sports broadcasters Neal and Brady",technologies:"PHP, MySQL, CakePHP, Flash",url:"https://web.archive.org/web/20110202220232/http://thenbr.com/",image:"images/nbr_monitor.png"},{name:"Josh A Feinberg",icon:"images/personal.png",description:"The site you are on!",technologies:"JQuery, JQuery Mobile",url:"http://joshafeinberg.com",image:"images/personal_monitor.png"}]};$(document).on("DOMMouseScroll mousewheel",function(e){"use strict";var t=$(window).width();var n=$(window).scrollLeft();var r;if(e.originalEvent.wheelDelta)r=e.originalEvent.wheelDelta;if(e.originalEvent.deltaY)r=e.originalEvent.deltaY*-1;if(e.originalEvent.detail)r=e.originalEvent.detail*-1;if(!lock&&!timeLock){if(r/120<0){if(currentPage<2){horizontalScroll("right")}}else if(r/120>0){if(currentPage>0){horizontalScroll("left")}}timeLock=true;setTimeout(function(){timeLock=false},2e3)}return false});$(window).bind("orientationchange",function(e){currentPage--;horizontalScroll("right")});$(window).scroll(function(e){"use strict";moveNavigationBar()});$(function(){"use strict";$(window).keydown(function(e){var t=$(window).width();$("body document").scrollLeft(t*currentPage);if(!lock){var n=e.keyCode;var t=$(window).width();if(n==37||n==38){horizontalScroll("left")}else if(n==39||n==40){horizontalScroll("right")}}e.preventDefault()})});$(window).load(function(){"use strict";moveNavigationBar();if(currentPage!=0){currentPage--;horizontalScroll("right")}});$(document).ready(function(){"use strict";function e(e){"use strict";if(!lock){var t=$(window).width();$(window).scrollTop(0);if(e=="aboutme"){currentPage=0;horizontalScroll("left")}else if(e=="portfolio"){if(currentPage==2){horizontalScroll("left")}else if(currentPage==0){horizontalScroll("right")}}else{currentPage=2;horizontalScroll("right")}}}$("a").click(function(){"use strict";var t=$(this).attr("href");if(t[0]=="#"&&!lock){t=t.replace("#","");e(t)}});$(document).swipe({swipe:function(e,t,n,r,i){if(t=="left"||t=="up"){horizontalScroll("right")}if(t=="right"||t=="down"){horizontalScroll("left")}},threshold:75,allowPageScroll:"none"});changePortfolio("mobile",0);changePortfolio("web",0);if(window.location.hash){if(window.location.hash.substring(1)!=""){moveNavigationBar();var t=$(window).width();$("#headercontainer").css("margin-left",currentPage*t);var n=2-currentPage*100;$("#social").css("right",n+"%");moveNavigationBar()}}})
+
+
+</script>
+
+</head>
+
+<body onLoad="window.scrollTo(1,1)">
+
+<div id="fullbodycontainer" style="min-height:100%;">
+
+<div id="headercontainer">
+<div id="header">
+<span id="social">
+    <a href="https://twitter.com/joshfein"><img src="images/twitter.png" id="twitterheader" alt="twitter" /></a>
+    <a href="http://www.linkedin.com/pub/josh-feinberg/30/8b7/81"><img src="images/linkedin.png" id="linkedinheader" alt="linkedin" /></a>
+    <a href="https://bitbucket.org/joshafeinberg"><img src="images/bitbucket.png" id="bitbucketheader" alt="bitbucket" /></a>
+    <a href="http://play.google.com/store/search?q=pub:Josh%20A%20Feinberg"><img src="images/googeplay.png" id="googleplayheader" alt="googleplay" /></a>
+</span>
+<h1>Josh Feinberg</h1>
+<span id="navigation"><span id="navaboutme"><a href="#aboutme">About Me</a></span> | <span id="navportfolio"><a href="#portfolio">Portfolio</a></span> | <span id="navresume"><a href="#resume">Resume</a></span></span>
+</div>
+</div>
+
+<span id="navigationbox">&nbsp;</span>
+
+<div id="contentcontainer">
+
+
+<div id="aboutme">
+    <div id="aboutmecontainer">
+        <div id="leftcontent">
+            <h3 id="web">WEB</h3>
+            <h3 id="mobile">MOBILE</h3>
+            <h3 id="desktop">DESKTOP</h3>
+        </div>
+        
+        <div id="rightcontent">DEVELOPER</div>
+        
+        <div class="clear"></div>
+        
+        <div class="maincontent">josh@joshafeinberg.com</div>
+        <div class="maincontent">248 - 790 - 0932</div>
+        
+        <div class="clear"></div>
+        
+        <div class="maincontent">
+            <a href="https://twitter.com/joshfein"><img src="images/twitter.png" id="twitter" alt="twitter" /></a>
+               <a href="http://www.linkedin.com/pub/josh-feinberg/30/8b7/81"><img src="images/linkedin.png" id="linkedin" alt="linkedin" /></a>
+            <a href="https://bitbucket.org/joshafeinberg"><img src="images/bitbucket.png" id="bitbucket" alt="bitbucket" /></a>
+            <a href="http://play.google.com/store/search?q=pub:Josh%20A%20Feinberg"><img src="images/googeplay.png" id="googleplay" alt="googleplay" /></a>
+        </div>
+        
+    </div>
+</div>
+
+<div id="portfolio">
+
+    <div class="portfoliocontainer" id="appwork">
+        <img src="" id="appimage" alt="Application Image" />
+    
+        <div id="portfolioapp">
+            <img src="" id="appicon" alt="Application Icon" />
+            <h2 id="appname"></h2>
+            <h3 id="appdescription"></h3>
+            <strong>Source:</strong> <a href="" id="appbitbucket">BitBucket</a><br />
+            <a href="#" id="appplay"><img src="http://developer.android.com/images/brand/en_generic_rgb_wo_60.png" alt="Google Play" /></a>
+            
+            <ul id="applist">
+            </ul>
+        </div>
+           
+    </div>
+    
+    <div class="portfoliocontainer" id="webwork">
+    
+        <div id="portfolioweb" >
+            <h2 id="webname"></h2>
+            <h3 id="webdescription"></h3>
+            <strong>Technologies: </strong><span id="webtechnologies"></span><br />
+            <!--<a href="" id="weblink">Link</a>-->
+            
+            <ul id="weblist">
+            </ul>
+        </div>
+        
+        <img src="" id="webimage" alt="Website Image" />
+           
+    </div>
+    
+</div>
+
+<div id="portfolioselector">
+<span id="portfolioapptab" class="activetab" onClick="portfolioView('app')" ontouchstart="portfolioView('app')">APP WORK</span>
+<span id="portfoliowebtab" class="disabledtab" onClick="portfolioView('web')" ontouchstart="portfolioView('web')">WEB WORK</span>
+</div>
+
+
+<div id="resume">
+
+    <div class="resumecontainer" id="eduresume">
+    
+            <h2>Education</h2>
+            <strong>Indiana University</strong>, Bloomington, IN<br />
+            <em>Bachelor of Science in Computer Science</em> <span class="date">May 2012</span><br />
+            Specialty: Programming Languages<br />
+            Minor: Informatics<br />
+            Cumulative GPA: 3.3/4.0, Major GPA: 3.6/4.0<br /><br />
+            <h2>Skills</h2>
+            <img src="images/java.png" alt="Java" /> <img src="images/C.png" alt="C" /> <img src="images/c++.png" alt="C++" /> <img src="images/objc.png" alt="Objective-C" /> <img src="images/php.png" alt="PHP" /> <img src="images/scheme.png" alt="Scheme" /> <img src="images/html.png" alt="HTML" />
+              <img src="images/javascript.png" alt="JavaScript" /> <img src="images/ajax.png" alt="AJAX" /> <img src="images/jquery.png" alt="JQuery" /> <img src="images/android.png" alt="Android" /> <img src="images/iphone.png" alt="Apple" /> <img src="images/mysql.png" alt="MySQL" />
+  
+    </div>
+    
+    <div class="resumecontainer" id="expresume">
+    
+            <h2>Experience</h2>
+            
+            <span ontouchstart="expand('punchkick')"><em>Android Developer</em> - <strong>Punchkick Interactive</strong><br />
+            Chicago, IL <strong>April 2014 - Present</strong><span id="punchkickexpand">(+)</span><br /></span>
+            <span id="punchkick"><ul>
+                <li>Developed Android applications based on clients specifications and designs</li>
+                <li>Worked with a team using git to manage large code bases and issue tracking</li>
+            </ul></span><br />
+            <span ontouchstart="expand('ciber')"><em>Consultant</em> - <strong>Ciber Inc</strong><br />
+            Chicago, IL <strong>July 2012 - April 2014</strong><span id="ciberexpand">(+)</span><br /></span>
+            <span id="ciber"><ul>
+                <li>Planned with clients to determine the best way to implement the Lawson ERP software for their companies needs</li>
+                <li>Created technical designs to ensure the client as well as programmers understand the needs of the software</li>
+                <li>Developed programs in COBOL and ProcessFlow for use on clients production environments</li>
+            </ul></span><br />
+            <span ontouchstart="expand('ui')"><em>Undergraduate Instructor</em> - <strong>Indiana University</strong><br />
+            Bloomington, IN <strong>September 2009 - December 2009 / January 2012 - May 2012</strong><span id="uiexpand">(+)</span><br /></span>
+            <span id="ui"><ul>
+                <li>Helped lead two classes of over 15 students, Introduction to Software Systems teaching Java and Unix Shell and Digital Multimedia Concepts and Technologies teaching multimedia technology</li>
+                <li>Diagnosed issues in code and guided students towards finding the correct and most efficient answer to the problems</li>
+                <li>Maintained order within the class and constructed good communication with students and other instructors</li>
+            </ul></span><br />
+            <span ontouchstart="expand('serveit')"><em>ServeIT Consultant</em> - <strong>Indiana University</strong><br />
+            Bloomington, IN <strong>January 2011 - December 2011</strong><span id="serveitexpand">(+)</span><br /></span>
+            <span id="serveit"><ul>
+                <li>Worked with non-profits around the city of Bloomington to provide technology services based on their needs and financial situations</li>
+                <li>Consulted with employees to figure out best ways of implementing new services and training staff members</li>
+                <li>Planned with team of undergraduates in order to achieve a final product</li>
+            </ul></span><br />
+            <!--<em>Technology Center Consultant</em> - <strong>Indiana University</strong><br />
+            Bloomington, IN <strong>September 2010 - December 2010</strong><br />
+            <ul>
+                <li>Provided support for in-room networking as well as assisting in residential labs around campus in maintaining working computers, printers, as well as a good environmen</li>
+                <li>Helped students with various software suites from Microsoft Office to Adobe Creative Suite</li>
+            </ul>-->
+  
+    </div>
+</div>
+
+<div id="resumeselector">
+<span id="resumeedutab" class="activetab" onClick="resumeView('edu')" ontouchstart="resumeView('edu')">DEGREES &amp; SKILLS</span>
+<span id="resumeexptab" class="disabledtab" onClick="resumeView('exp')" ontouchstart="resumeView('exp')">EXPERIENCE</span>
+</div>
+
+</div>
+
+<div id="footer"></div>
+
+</div>
+
+</body>
+</html>
