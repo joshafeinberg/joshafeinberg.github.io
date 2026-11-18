@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!-- Background generator for assets/images/bg.png — see README.md in this directory. -->
+<html><head><meta charset="utf-8"><style>
+  html,body{margin:0;padding:0;background:#232837;}
+  canvas{display:block;}
+</style></head>
+<body>
+<canvas id="c" width="4800" height="1200"></canvas>
+<script>
+const W = 4800, H = 1200;
+const BG = "#232837", FG = "#2f3648", SPIRE = "#4a567c";
+
+// ---------- Kotlin code pool ----------
+const snippets = [
+  "package com.chicago.skyline",
+  "import kotlin.math.max",
+  "fun main() { println(\"Hello, Chicago!\") }",
+  "data class Building(val name: String, val heightMeters: Double)",
+  "val skyline = listOf(Building(\"Willis\", 442.1), Building(\"Hancock\", 312.3))",
+  "class Tower(private val floors: Int) { fun visit() = println(floors) }",
+  "fun <T> List<T>.tallest(): T? = maxByOrNull { it.heightMeters }",
+  "when (weather) { is Sunny -> walk(); else -> takeTheL() }",
+  "val bean = CloudGate(widthM = 20.0).polished()",
+  "interface Transit { fun ride(line: Line): Stop }",
+  "sealed class Weather { object Sunny : Weather(); data class Rain(val mm: Double) : Weather() }",
+  "fun Int.feetToMeters(): Double = this * 0.3048",
+  "suspend fun fetchSkyline(): List<Building> = withContext(Dispatchers.IO) { api.get() }",
+  "companion object { const val CITY = \"Chicago\" }",
+  "override fun toString(): String = \"$name ($heightMeters m)\"",
+  "fun main(args: Array<String>) { skyline.forEach(::print) }",
+  "private val floors = generateSequence(1) { it + 1 }.take(count)",
+  "inline fun <reified T> readConfig(): T = decodeFromString(json)",
+  "val lTrain = listOf(\"Blue\", \"Brown\", \"Green\", \"Orange\", \"Pink\", \"Purple\", \"Red\", \"Yellow\")",
+  "fun Building.describe(): String = buildString { append(name); append(\" \"); append(heightMeters) }",
+  "data class Lake(val name: String = \"Michigan\", val areaKm2: Double = 5801.0)",
+  "val windChill = temperature * 0.7 - windSpeed * 0.4",
+  "fun <T> Iterable<T>.chunkedSafe(size: Int): List<List<T>> = chunked(size).filter { it.isNotEmpty() }",
+  "class Antenna(val heightMeters: Double) : Comparable<Antenna> { override fun compareTo(other: Antenna) = heightMeters.compareTo(other.heightMeters) }",
+  "val corncobs = Pair(MarinaCity(1), MarinaCity(2))",
+  "fun skylineArea(): Double = skyline.sumOf { it.footprintSqMeters() }",
+  "private fun Building.footprintSqMeters(): Double = width * depth",
+  "suspend fun Ctx.loadBuildings(): Flow<Building> = flow { emitAll(repo.observe()) }.shareIn(this, SharingStarted.Eagerly)",
+  "@JvmStatic fun parse(line: String): Building? = line.split(\"|\").let { if (it.size == 2) Building(it[0], it[1].toDoubleOrNull() ?: return null) else null }",
+];
+
+const realSnippets = [
+  "else -> securityId to false",
+  "PersonalSankeyItem.SocialSecurity -> sankey.socialSecurity",
+  "if (fixEventId == null && date != null) {",
+  "sinceMarriedW2Graph = state.w2IncomeSinceMarriedByCareerYearGraph,",
+  ".filter { it.category == TransactionCategory.INTEREST }",
+  "val toolsUsed = mutableListOf<String>()",
+  "onDismissRequest: () -> Unit,",
+  "@Assisted private val screen: ChatScreen,",
+  "fun getNotificationById(id: String): DatabaseNotification?",
+  "may provide additional or different license terms and conditions",
+  "assertThat(result).hasSize(2)",
+  "* The Flow automatically refetches data from the network when the cache is invalidated.",
+  "// modifier = Modifier.size(padding),",
+  "import com.joshafeinberg.feinbergos.common.ui.theme.blueCardDark",
+  "import androidx.compose.ui.graphics.takeOrElse",
+  "// In-app navigation occurred: push a new browser history entry",
+  "cachedYear[timeZone] = result",
+  "2_000_000.00 to \"\ud83e\udd73\",",
+  "override fun getVestUnitsPerVest(yearMonth: YearMonth): Double = when {",
+  "import com.joshafeinberg.feinbergos.common.features.networth.changes.NetWorthChangesScreen",
+  "// Add a transaction that doesn't match any predicate (SELL type on 401k account)",
+  "val unencodedKey = String(Base64.decode(encodedKey))",
+  "ChatSessionsScreen.SessionsEvent.NavigateUp -> navigator.pop()",
+  "assertThat(state.averageAge).isEqualTo(0.0)",
+  "return internalToUrlRoute(tScreen)",
+  "return SubscriptionsScreen.UiSubscription(",
+  "private const val KTORFIT_DEFAULT_VALUE = \"KTORFIT_DEFAULT_VALUE\"",
+  "// Build condition and params to omit for this combination",
+  "plaidDatabase.subscriptionQueries.deleteSubscription(SubscriptionStatus.DELETED, id)",
+  "private fun AdminScreen.Page.getDetails(): Pair<ImageVector, String> = when (this) {",
+  "if (isFilterable && query.isNotBlank()) {",
+  ".groupBy { it.accountCategory }",
+  "assertThat(source).contains(\"\"\"setOf(\"items\", \"items\")\"\"\")",
+  ".clip(RoundedCornerShape(10.dp))",
+  "override fun updateTransaction(transaction: DatabaseTransaction) {",
+  "data class ManageW2State(",
+  "import androidx.compose.ui.text.buildAnnotatedString",
+  "MatcherDelegate by matcherDelegate,",
+  "onSubmit = { eventSink(HomeScreen.HomeEvent.PasswordEntered(it)) },",
+  "BankAccountCategory.RETIREMENT -> CardDefaults.cardColors(",
+  "path.startsWith(\"/transactions\") -> MonthlyData",
+  "database.addressBookQueries.getHighestAddressSort().executeAsOne().MAX!! + 1",
+  "override suspend fun setText(text: String) {",
+  "val targetCategory: TransactionCategory,",
+  "tint = cardColors.contentColor,",
+  "accountId = newBankAccountId,",
+  "@OptIn(ExperimentalStdlibApi::class)",
+  "println(\"No matching amazon transaction found for $amazonTransaction\")",
+  "pathParameters.add(ParameterEntry(actualName, type, !isNullable))",
+  "screenName = { latestScreenName(it) },",
+  "address(\"4\", \"Office - Downtown\", \"200 Vesey Street, Floor 14, New York, NY\", emptyList()),",
+  "fun shouldPreviousButtonStayInSameMonthForDefaultConstructor() {",
+  "@ContributesBinding(ServerScope::class, binding<CoinbaseUpdater>())",
+  "overlayHost.showSideBar(AddPersonScreen(event.person, addresses = addressIdToNameMap))",
+  "val artTrackerRoutes = FakeArtTrackerRoutes()",
+  "// Calculate metrics",
+  "// Add constructor with routes parameter",
+  "repeat(amountOfActions) { index ->",
+  "assertThat(curve(2)).isEqualTo(15.0) // (30 + 60) / 6 months in the partial year",
+  "layers.forEach { (layer, layerNodes) ->",
+  "timestamp = LocalDate(2026, 1, 1),",
+  "onCheckedChange = onCheckedChange,",
+  "import com.joshafeinberg.feinbergos.common.models.NetworkNote",
+  "val nodeBorder: Float = 0f,",
+  "datePickerDate = state.windowStart",
+  "interface FidelityImporter : Importer",
+  "import kotlin.test.assertEquals",
+  "fun deleteEvent(eventId: String)",
+  "data object Health : SankeyItem(JointSankeyBinder.JointIncome)",
+  "cell(round(profitTable.sellOnMaxProfit))",
+  "val referer = request.header(HttpHeaders.Referrer) ?: return false",
+  "accountId = \"active1\",",
+  "ungroupedAccounts = ungroupedAccounts,",
+  "val onDaysOfMonth: Set<Int>",
+  "category = TransactionCategory.MORTGAGE_RENT,",
+  "plaidAccountId: String?,",
+  "nodeOpacity = nodeOpacity,",
+  "lastSuggested = projResult.suggestedRetirementSpending",
+  "fun Double.signedFmt(): String {",
+  "val currentYearMonth = YearMonth.now()",
+  "import io.ktor.http.HttpProtocolVersion",
+  "data class EditJob(val jobId: String) : ManageJobsEvent",
+  "private val transactionUpdaterHealthChecker = FakeTransactionUpdaterHealthChecker()",
+  "BankAccountGroup.BANK_GROUP_ID_JOINT,",
+  "modifier = Modifier.fillMaxSize().padding(16.dp),",
+  "import androidx.compose.ui.graphics.painter.BitmapPainter",
+  "TimeFormats.SHORT_MONTH_DAY -> error(\"Not enough information\")",
+  "val isUnlocked: Boolean,",
+  "fun <E : Enum<E>> SimpleSegmentedToggle(",
+  "PropertySpec.builder(it.name!!.asString(), it.type.toTypeName())",
+  "joshContribution + (",
+  "import com.google.devtools.ksp.processing.CodeGenerator",
+  "suspend fun dismissAllNotifications()",
+  "// Skip ASCII and common control characters",
+  "val loadedState = awaitItem()",
+  "override suspend fun dismissNotification(notificationId: String) {",
+  "personName: String,",
+  "val prefilledCategory: TransactionCategory? = null,",
+  "val testScreenDisabled = result.getTestScreen(mapOf(\"enabled\" to false))",
+  "dateFieldSelected = \"vestDate\"",
+  "formatters.currencyFormatter(change),",
+  "transactionsAnalyzed: Int,",
+  "private fun isColumnWeCareAbout(",
+  "legend = getGraphLegend(allKeys),",
+  "presenter.test(LocalOverlayHost provides overlayHost) {",
+  "val restOfDays = onDaysOfMonth.toMutableSet().apply {",
+  "import kotlinx.io.IOException",
+  "var closestTransaction: AmazonOrder? = null",
+  "?: mapPlaidAccountIdToInternalId(this.accountId)",
+  "is LineGraph -> DefaultLineGraph(graph, modifier)",
+  "val date = now.minus(DatePeriod(months = months - 1 - i))",
+  "val (currentValue, isClear) = currencyState.onChange(newText)",
+  "database.getAllSalaries().map { it.toNetworkSalary() }",
+  "sellOnWindowMinSPYStockUnits = sellOnWindowMinSPYStockUnits,",
+  "plaidDownloadErrorInstitutionName = plaidAuthenticationError.institutionName,",
+  "timestamp = now.atStartOfDayIn(chicagoTimeZone()),",
+  "val totalAppraised: Double,",
+  "import com.squareup.kotlinpoet.FunSpec",
+  "data class AdminScreen(val defaultPage: Page = Page.GROUPS) : Screen {",
+  "val bondPercentage: Double,",
+  "icon = { Icon(Icons.Default.Sync, null) },",
+  "suspend fun getArtPieces(",
+];
+
+function rand(n) { return Math.floor(Math.random() * n); }
+
+// Build a long pool of code text, then rows across the full canvas width
+// Build one long code stream with no adjacent duplicate snippets; each line slices it at a random offset so consecutive lines never match
+let stream = "";
+{
+  const allSnippets = snippets.concat(realSnippets).map(s => s.replace(/[^\x20-\x7E]/g, "")).filter(s => s.length > 10);
+  let lastIdx = -1;
+  while (stream.length < 30000) {
+    let i; do { i = rand(allSnippets.length); } while (i === lastIdx);
+    lastIdx = i;
+    stream += allSnippets[i] + " ";
+  }
+}
+// Vertical columns of code reading bottom-to-top; one global set so content flows seamlessly across building tiers and setbacks
+const CW = 14;
+const cols = [];
+for (let x = 0; x < W + CW; x += CW) {
+  const start = rand(stream.length - 230);
+  cols.push({ x, text: stream.slice(start, start + 215) });
+}
+
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+ctx.fillStyle = BG;
+ctx.fillRect(0, 0, W, H);
+ctx.font = '13px Menlo, "SF Mono", monospace';
+ctx.textBaseline = "top";
+ctx.fillStyle = FG;
+
+// Draw the code field clipped to a path. Columns are global (same content everywhere), so text flows seamlessly across setbacks and tiers.
+function drawCodeInColumns(p2d, bounds) {
+  ctx.save();
+  ctx.clip(p2d);
+  for (const c of cols) {
+    if (c.x > bounds.x + bounds.w || c.x + CW < bounds.x) continue;
+    ctx.save();
+    ctx.translate(c.x, H + 2);
+    ctx.rotate(-Math.PI / 2); // text reads bottom-to-top
+    ctx.fillText(c.text, 0, 0);
+    ctx.restore();
+  }
+  ctx.restore();
+}
+
+function rectPath(x, y, w, h) {
+  const p = new Path2D();
+  p.rect(x, y, w, h);
+  return { p, b: { x, y, w, h } };
+}
+// solid fill for thin spires/antennas (text would be mush at this width) — slightly brighter than building code so they read
+function solidRect(x, y, w, h) { const c = ctx.fillStyle; ctx.fillStyle = SPIRE; ctx.fillRect(x, y, w, h); ctx.fillStyle = c; }
+
+// ---------- building shapes ----------
+// slab: plain rectangle from ground up
+function slab(x, w, h) { const r = rectPath(x, H - h, w, h); drawCodeInColumns(r.p, r.b); }
+
+// Willis Tower: three setbacks + two antennas
+function willis(x, w, h) {
+  const t1 = rectPath(x, H - h * 0.62, w, h * 0.62);
+  const t2 = rectPath(x + w * 0.15, H - h * 0.84, w * 0.7, h * 0.22);
+  const t3 = rectPath(x + w * 0.28, H - h, w * 0.44, h * 0.16);
+  drawCodeInColumns(t1.p, t1.b); drawCodeInColumns(t2.p, t2.b); drawCodeInColumns(t3.p, t3.b);
+  solidRect(x + w * 0.34 - 3, H - h - 170, 16, 170);
+  solidRect(x + w * 0.60 - 3, H - h - 135, 16, 135);
+}
+
+// John Hancock: tapered trapezoid + center antenna
+function hancock(x, w, h) {
+  const p = new Path2D();
+  p.moveTo(x, H); p.lineTo(x + w * 0.22, H - h); p.lineTo(x + w * 0.78, H - h); p.lineTo(x + w, H); p.closePath();
+  drawCodeInColumns(p, { x, y: H - h, w, h });
+  solidRect(x + w / 2 - 8, H - h - 150, 16, 150);
+}
+
+// Wrigley Building: two tiers + clock-tower spire
+function wrigley(x, w, h) {
+  const t1 = rectPath(x, H - h * 0.72, w, h * 0.72);
+  const t2 = rectPath(x + w * 0.25, H - h * 0.9, w * 0.5, h * 0.18);
+  drawCodeInColumns(t1.p, t1.b); drawCodeInColumns(t2.p, t2.b);
+  solidRect(x + w / 2 - 8, H - h - 160, 16, 160);
+}
+
+// Tribune Tower: rectangle with gothic battlements (teeth) on top
+function tribune(x, w, h) {
+  const p = new Path2D();
+  const toothW = 26, gap = 18, toothH = 34;
+  p.moveTo(x, H); p.lineTo(x, H - h + toothH);
+  let cx = x;
+  while (cx < x + w) {
+    const tw = Math.min(toothW, x + w - cx);
+    if (tw > gap * 0.6) { p.lineTo(cx, H - h + toothH); p.lineTo(cx, H - h); p.lineTo(cx + tw, H - h); p.lineTo(cx + tw, H - h + toothH); }
+    cx += tw + gap;
+  }
+  p.lineTo(x + w, H - h + toothH); p.lineTo(x + w, H); p.closePath();
+  drawCodeInColumns(p, { x, y: H - h, w, h });
+}
+
+// ---------- skyline layout (left to right) ----------
+slab(0, 190, 460);
+tribune(210, 260, 620);
+slab(490, 200, 500);
+willis(720, 430, 840);
+wrigley(1180, 240, 760);
+slab(1440, 250, 560);
+hancock(1710, 300, 800);
+slab(2030, 220, 600);
+slab(2270, 260, 720);
+tribune(2550, 250, 660);
+slab(2820, 210, 520);
+wrigley(3050, 240, 790);
+slab(3310, 260, 600);
+slab(3590, 200, 700);
+hancock(3810, 300, 820);
+slab(4130, 230, 560);
+slab(4380, 200, 660);
+slab(4600, 200, 480);
+
+// ground strip
+ctx.fillRect(0, H - 4, W, 4);
+
+document.title = "SKYLINE-READY";
+</script>
+</body></html>
